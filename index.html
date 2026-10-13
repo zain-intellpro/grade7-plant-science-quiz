@@ -165,6 +165,7 @@
         _subject:'Grade 7 plant science quiz submission',
         _captcha:'false',
         _honey:'',
+        _url:window.location.href,
         Quiz:'Grade 7 Photosynthesis and Transport in Plants',
         Submitted:new Date().toLocaleString(),
         Answers:report
@@ -176,7 +177,9 @@
         show('submitted');
       } catch(error) {
         $('next').disabled=false; $('previous').disabled=false;
-        $('send-status').textContent='The answers could not be sent. Check your internet connection and try Submit again.';
+        $('send-status').textContent=/activat/i.test(String(error.message))
+          ? 'Your parent needs to activate email delivery first. Please ask them, then try Submit again.'
+          : 'The answers could not be sent. Check your internet connection and try Submit again.';
       }
     }
     $('start').addEventListener('click',start);
