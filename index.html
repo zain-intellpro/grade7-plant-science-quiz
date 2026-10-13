@@ -4,193 +4,212 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Plant Science Concept Quiz | Grade 7</title>
+  <title>Plant Science Concept Check | Interactive Worksheet</title>
   <style>
-    :root { --ink:#17323a; --muted:#526a70; --teal:#087b77; --teal-dark:#08615e; --mint:#e8f5ef; --line:#d7e4df; --paper:#fffefb; --cream:#f7f4e9; --good:#197044; --bad:#a63b37; --shadow:0 18px 50px rgba(24,65,67,.12); }
+    :root { --ink:#18323a; --muted:#526c72; --teal:#087b77; --teal-dark:#08625e; --mint:#eaf6f1; --line:#d6e4e0; --paper:#fffefb; --cream:#f8f5eb; --bad:#a13d35; --shadow:0 16px 46px rgba(24,65,67,.1); }
     * { box-sizing:border-box; }
-    body { margin:0; color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.5; background:radial-gradient(circle at top left,#dbf1e9 0,transparent 34%),linear-gradient(145deg,#eef8f4,#f9f5e9 65%,#e8f4f0); min-height:100vh; }
-    .shell { max-width:820px; margin:0 auto; padding:26px 18px 70px; }
-    .brand { display:flex; align-items:center; gap:12px; margin-bottom:30px; font-weight:800; letter-spacing:.02em; }
-    .brand-mark { width:42px; height:42px; display:grid; place-items:center; background:var(--teal); color:white; border-radius:13px; font-size:25px; }
-    .brand small { display:block; color:var(--muted); font-weight:600; font-size:12px; letter-spacing:.12em; text-transform:uppercase; }
-    .card { background:var(--paper); border:1px solid rgba(255,255,255,.9); border-radius:24px; box-shadow:var(--shadow); padding:clamp(24px,5vw,44px); }
-    .eyebrow { color:var(--teal); font-weight:800; text-transform:uppercase; letter-spacing:.12em; font-size:12px; }
-    h1 { font-size:clamp(31px,5vw,48px); line-height:1.12; letter-spacing:-.04em; margin:12px 0 15px; }
-    h2 { font-size:clamp(24px,4vw,34px); line-height:1.2; letter-spacing:-.025em; margin:8px 0 12px; }
-    h3 { margin:0 0 8px; font-size:17px; }
-    p { margin:0 0 16px; }
-    .lead { font-size:18px; color:#345057; max-width:60ch; }
-    .facts { display:flex; flex-wrap:wrap; gap:9px; margin:24px 0 30px; }
-    .pill { border-radius:999px; background:var(--mint); color:#216457; padding:8px 13px; font-size:13px; font-weight:700; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; min-height:100vh; background:radial-gradient(circle at 0 0,#d9f2e9 0,transparent 30%),linear-gradient(145deg,#edf8f3,#faf6e9 65%,#eaf5f0); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; line-height:1.5; }
+    .shell { max-width:850px; margin:0 auto; padding:24px 18px 65px; }
+    .brand { display:flex; align-items:center; gap:12px; margin-bottom:24px; font-weight:800; }
+    .brand-mark { width:43px; height:43px; border-radius:13px; display:grid; place-items:center; background:var(--teal); color:#fff; font-size:25px; }
+    .brand small { display:block; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; font-size:11px; font-weight:700; }
+    .hero,.card { background:var(--paper); border-radius:22px; box-shadow:var(--shadow); border:1px solid rgba(255,255,255,.9); }
+    .hero { padding:clamp(24px,5vw,40px); margin-bottom:18px; }
+    .eyebrow { color:var(--teal); text-transform:uppercase; letter-spacing:.13em; font-weight:850; font-size:12px; }
+    h1 { font-size:clamp(30px,5vw,44px); line-height:1.13; letter-spacing:-.04em; margin:10px 0 15px; }
+    h2 { font-size:clamp(22px,3.3vw,29px); line-height:1.2; letter-spacing:-.025em; margin:0; }
+    p { margin:0 0 13px; }
+    .lead { font-size:17px; color:#355058; max-width:65ch; }
+    .meta { display:flex; flex-wrap:wrap; gap:8px; margin:21px 0 0; }
+    .pill { display:inline-block; border-radius:999px; padding:7px 12px; background:var(--mint); color:#246458; font-size:13px; font-weight:750; }
+    .notice { color:var(--muted); font-size:13px; margin:20px 0 0; }
+    .progress-card { background:#fffefb; border:1px solid var(--line); border-radius:14px; padding:13px 17px; margin-bottom:18px; }
+    .progress-row { display:flex; justify-content:space-between; gap:12px; color:var(--muted); font-size:13px; font-weight:750; margin-bottom:8px; }
+    .progress-track { height:9px; background:#e4efe9; border-radius:20px; overflow:hidden; }
+    .progress-fill { display:block; width:0; height:100%; background:linear-gradient(90deg,#139c89,#71c594); transition:width .2s; }
+    .card { padding:clamp(22px,4vw,34px); margin-bottom:18px; scroll-margin-top:20px; }
+    .card-header { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; margin-bottom:10px; }
+    .points { color:var(--teal); background:var(--mint); white-space:nowrap; font-weight:800; font-size:12px; border-radius:999px; padding:5px 10px; }
+    .context { color:#38555b; margin:12px 0 20px; }
+    .answer-grid { display:grid; grid-template-columns:1fr 1fr; gap:17px; }
+    .field { display:block; margin:0 0 18px; }
+    .field-label { display:block; font-weight:750; margin-bottom:8px; }
+    .field-points { color:var(--teal); font-weight:750; font-size:12px; white-space:nowrap; }
+    input[type="text"],textarea { display:block; width:100%; border:2px solid var(--line); background:#fff; color:var(--ink); border-radius:11px; padding:12px 13px; font:inherit; font-size:16px; line-height:1.4; transition:border-color .15s,box-shadow .15s; }
+    input[type="text"] { height:48px; }
+    textarea { min-height:95px; resize:vertical; }
+    input:focus,textarea:focus { outline:none; border-color:var(--teal); box-shadow:0 0 0 3px rgba(8,123,119,.12); }
+    .small-note { color:var(--muted); font-size:13px; margin-top:-8px; }
+    .submit-panel { padding:clamp(22px,4vw,34px); background:var(--cream); border:1px solid #e9e2cf; border-radius:22px; }
+    .submit-panel h2 { margin-bottom:10px; }
+    .submit-panel p { color:#3f5559; }
     button { font:inherit; cursor:pointer; }
-    .primary,.secondary { border-radius:12px; padding:12px 20px; font-weight:800; border:2px solid var(--teal); transition:transform .15s,background .15s,box-shadow .15s; }
-    .primary { color:white; background:var(--teal); box-shadow:0 8px 20px rgba(8,123,119,.16); }
-    .primary:hover:not(:disabled) { background:var(--teal-dark); transform:translateY(-1px); }
-    .secondary { color:var(--teal-dark); background:white; }
-    .secondary:hover { background:var(--mint); }
-    .primary:disabled { opacity:.45; cursor:not-allowed; box-shadow:none; }
-    button:focus-visible { outline:3px solid #ffbf47; outline-offset:3px; }
-    .privacy { color:var(--muted); font-size:13px; margin-top:18px; }
-    .hidden { display:none !important; }
-    .topline { display:flex; justify-content:space-between; align-items:center; gap:12px; color:var(--muted); font-size:13px; font-weight:800; margin-bottom:13px; }
-    .progress { width:100%; height:10px; border-radius:20px; background:#e5efea; overflow:hidden; margin-bottom:30px; }
-    .progress > span { display:block; height:100%; width:0; background:linear-gradient(90deg,#16a28c,#70c48d); transition:width .25s ease; }
-    .question { font-size:clamp(21px,3vw,27px); line-height:1.28; letter-spacing:-.015em; margin:0 0 25px; font-weight:750; }
-    .choices { display:grid; gap:11px; margin-bottom:24px; }
-    .choice { display:flex; align-items:flex-start; gap:13px; text-align:left; width:100%; background:#fff; color:var(--ink); border:2px solid var(--line); border-radius:14px; padding:14px 16px; min-height:58px; transition:border-color .15s,background .15s,transform .15s; }
-    .choice:hover:not(:disabled) { border-color:#71b9a6; transform:translateY(-1px); }
-    .choice.selected { border-color:var(--teal); background:#ecf8f4; }
-    .choice.correct { border-color:var(--good); background:#e8f6ec; }
-    .choice.wrong { border-color:var(--bad); background:#fff0ed; }
-    .choice:disabled { cursor:default; }
-    .send-status { color:var(--bad); font-size:14px; min-height:1.5em; margin:12px 0 0; }
-    .letter { flex:0 0 27px; width:27px; height:27px; border-radius:8px; background:#edf3f1; display:grid; place-items:center; font-weight:850; font-size:13px; }
-    .choice.correct .letter { background:var(--good); color:white; }
-    .choice.wrong .letter { background:var(--bad); color:white; }
-    .actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-    .feedback { border-left:5px solid var(--good); border-radius:10px; padding:15px 18px; background:#eff8f0; margin-bottom:18px; }
-    .feedback.wrong { border-color:var(--bad); background:#fff4f1; }
-    .feedback strong { display:block; margin-bottom:3px; }
-    .feedback p { margin:0; }
-    .score { display:flex; align-items:baseline; gap:13px; margin:12px 0 22px; }
-    .score strong { font-size:clamp(48px,8vw,72px); line-height:1; color:var(--teal); letter-spacing:-.05em; }
-    .score span { color:var(--muted); font-weight:700; }
-    .result-note { background:var(--cream); border-radius:14px; padding:15px 18px; margin-bottom:24px; }
-    .review-list { display:grid; gap:12px; margin:16px 0 28px; }
-    .review-item { border:1px solid var(--line); background:#fbfdfb; border-radius:14px; padding:15px 17px; }
-    .review-item .topic { color:var(--teal); font-size:12px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
-    .review-item p { margin:5px 0 0; font-size:14px; color:#3d555b; }
-    .footer { color:var(--muted); font-size:12px; text-align:center; margin-top:18px; }
-    @media (max-width:560px) { .shell{padding:16px 12px 42px}.brand{margin-bottom:18px}.card{border-radius:18px;padding:23px 20px}.choice{padding:12px}.actions button{width:100%} }
-    @media print { body{background:white}.shell{max-width:none;padding:0}.brand,.actions,.privacy,.footer{display:none!important}.card{box-shadow:none;border:none;padding:0}.review-item{break-inside:avoid} }
+    .primary { color:#fff; background:var(--teal); border:2px solid var(--teal); border-radius:12px; padding:13px 21px; font-weight:850; box-shadow:0 8px 20px rgba(8,123,119,.16); }
+    .primary:hover:not(:disabled) { background:var(--teal-dark); }
+    .primary:disabled { opacity:.55; cursor:not-allowed; box-shadow:none; }
+    .primary:focus-visible { outline:3px solid #ffbf47; outline-offset:3px; }
+    .status { min-height:1.5em; margin-top:13px; font-size:14px; color:var(--bad); font-weight:650; }
+    .done { text-align:center; padding:44px 30px; }
+    .done .icon { width:68px; height:68px; margin:0 auto 17px; border-radius:50%; background:var(--mint); color:var(--teal); display:grid; place-items:center; font-size:34px; font-weight:800; }
+    .footer { text-align:center; color:var(--muted); font-size:12px; margin-top:19px; }
+    [hidden] { display:none !important; }
+    @media(max-width:610px) { .shell{padding:15px 12px 45px}.hero,.card,.submit-panel{border-radius:18px}.answer-grid{grid-template-columns:1fr;gap:0}.card-header{align-items:center}.points{font-size:11px}.brand{margin-bottom:16px} }
+    @media print { body{background:#fff}.shell{max-width:none;padding:0}.hero,.card,.submit-panel{box-shadow:none;break-inside:avoid}.progress-card,.submit-panel,.footer{display:none}.card{padding:18px;margin-bottom:8px} }
   </style>
 </head>
 <body>
   <main class="shell">
-    <div class="brand"><span class="brand-mark" aria-hidden="true">✿</span><div>Plant Science Lab<small>Grade 7 concept quiz</small></div></div>
+    <div class="brand"><span class="brand-mark" aria-hidden="true">✿</span><div>Plant Science Lab<small>Grade 7 interactive worksheet</small></div></div>
+    <div class="hero">
+      <div class="eyebrow">Concept check</div>
+      <h1>Photosynthesis and Transport in Plants</h1>
+      <p class="lead">Answer the same questions as the printable worksheet. Use your own words, then submit all your answers to your parent.</p>
+      <div class="meta"><span class="pill">6 questions</span><span class="pill">40 points</span><span class="pill">About 35–45 minutes</span><span class="pill">No answer checking</span></div>
+      <p class="notice">Your draft is saved on this device as you type. An internet connection is needed to submit it by email.</p>
+    </div>
 
-    <section id="welcome" class="card" aria-labelledby="welcome-title">
-      <div class="eyebrow">Ready to explore?</div>
-      <h1 id="welcome-title">How do plants make food and move water?</h1>
-      <p class="lead">Use what you learned about photosynthesis, experiments, roots and transport to solve 16 short questions.</p>
-      <div class="facts"><span class="pill">16 questions</span><span class="pill">About 15-20 minutes</span><span class="pill">Answers sent to parent</span></div>
-      <button id="start" class="primary" type="button">Start quiz →</button>
-      <p class="privacy">An internet connection is needed to submit. No correct answers are shown.</p>
-    </section>
-
-    <section id="quiz" class="card hidden" aria-labelledby="question-title">
-      <div class="topline"><span id="counter">Question 1 of 16</span><span id="topic">Photosynthesis</span></div>
-      <div class="progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="16" aria-valuenow="0"><span id="progress-fill"></span></div>
-      <h2 id="question-title" class="question"></h2>
-      <div id="choices" class="choices" role="group" aria-label="Answer choices"></div>
-      <div class="actions"><button id="previous" class="secondary" type="button">← Previous</button><button id="next" class="primary" type="button" disabled>Next question →</button></div><p id="send-status" class="send-status" role="status" aria-live="polite"></p>
-      <p class="privacy">Tip: you can press 1, 2, 3 or 4 to choose an answer.</p>
-    </section>
-
-    <section id="submitted" class="card hidden" aria-labelledby="submitted-title">
-      <div class="eyebrow">Finished</div>
-      <h2 id="submitted-title">Answers submitted</h2>
-      <p class="lead">Your responses have been sent for your parent to review.</p>
-      <p class="privacy">You can close this page now.</p>
-    </section>
-    <p class="footer">Based on the chapter “Photosynthesis and Transport in Plants.”</p>
+    <form id="quiz-form">
+      <div class="card">
+        <div class="card-header"><h2>Before you begin</h2></div>
+        <label class="field" for="student-name"><span class="field-label">Your first name</span><input id="student-name" name="student_name" type="text" maxlength="80" autocomplete="given-name" required></label>
+        <p class="small-note">This name will help your parent identify your submission.</p>
+      </div>
+      <div class="progress-card" role="status" aria-live="polite"><div class="progress-row"><span>Worksheet progress</span><span id="progress-text">0 of 26 answers complete</span></div><div class="progress-track"><span id="progress-fill" class="progress-fill"></span></div></div>
+      <div id="questions"></div>
+      <div class="submit-panel">
+        <h2>Ready to hand it in?</h2>
+        <p>Make sure each answer explains your thinking. You can scroll back and change anything before you submit.</p>
+        <button id="submit-button" class="primary" type="submit">Submit answers →</button>
+        <p id="submit-status" class="status" role="status" aria-live="polite"></p>
+      </div>
+    </form>
+    <section id="done" class="card done" hidden aria-labelledby="done-title"><div class="icon" aria-hidden="true">✓</div><h2 id="done-title">Answers submitted</h2><p>Your responses have been sent to your parent. You can close this page now.</p></section>
+    <p class="footer">Adapted from the Grade 7 concept-check worksheet.</p>
   </main>
 
   <script>
-
     'use strict';
-    const bank = [{"topic":"Photosynthesis","question":"Which two substances does a plant use to make sugar during photosynthesis?","choices":["Carbon dioxide and water","Mineral salts and oxygen","Carbon dioxide and oxygen","Oxygen and water"]},{"topic":"Photosynthesis","question":"A green leaf makes sugar in sunlight. Which gas is also produced?","choices":["Nitrogen","Carbon dioxide","Water vapour","Oxygen"]},{"topic":"Photosynthesis","question":"What does chlorophyll do in photosynthesis?","choices":["Carries food to roots","Absorbs water from soil","Captures light energy","Tests a leaf for starch"]},{"topic":"Photosynthesis","question":"A plant makes more sugar than it needs at once. What can happen to the extra sugar?","choices":["It is carried out as oxygen","It is stored as starch","It turns directly into soil","It becomes sunlight"]},{"topic":"Photosynthesis","question":"How does carbon dioxide usually enter a leaf?","choices":["Through the leaf veins as sugar","Through root hairs","Through xylem from the soil","Through stomata"]},{"topic":"Experiments","question":"Iodine changes from brown to blue-black on part of a leaf. What does this show?","choices":["The leaf has no chlorophyll","The leaf absorbed mineral salts","Starch is present there","Oxygen is present there"]},{"topic":"Experiments","question":"A plant is kept in darkness until its leaves have no stored starch. One leaf is then partly covered with black paper and the plant is put in sunlight. Which part should test positive for starch?","choices":["Only the part under the black paper","Every part equally","The uncovered green part","No part, because the plant was once in darkness"]},{"topic":"Experiments","question":"A tree gains 74.4 kg while the dry soil in its pot loses only 0.1 kg. What conclusion fits this evidence?","choices":["The tree did not actually grow","Most of the treeâ€™s gain did not come from the soil","The soil supplied all the treeâ€™s new mass","Trees make food only from mineral salts"]},{"topic":"Roots and transport","question":"Why do many tiny root hairs help a plant absorb water quickly?","choices":["They give roots more surface area touching soil water","They make sugar for the roots","They release oxygen into the soil","They replace the need for xylem"]},{"topic":"Roots and transport","question":"Which tissue carries water and dissolved mineral salts from roots toward leaves?","choices":["Stomata","Chlorophyll","Xylem","Phloem"]},{"topic":"Roots and transport","question":"A potato tuber underground receives food made in the leaves. Which tissue carries that food?","choices":["Stomata","Phloem","Xylem","Root hairs"]},{"topic":"Roots and transport","question":"What is transpiration?","choices":["The loss of water vapour from plant parts, especially leaves","The making of sugar from light","The movement of sugar through phloem","The absorption of mineral salts by root hairs"]},{"topic":"Roots and transport","question":"How does water loss from leaves help water move up through xylem?","choices":["It produces mineral salts inside the stem","It makes water flow downward from leaves","It turns xylem into phloem","It helps pull replacement water upward"]},{"topic":"Roots and transport","question":"A celery stalk stands in coloured water. Later, coloured lines appear in the stalk and leaf veins. What does this show?","choices":["The celery made its own dye","Food moved through phloem into the glass","Stomata absorbed dye from the air","Water moved through xylem vessels"]},{"topic":"Apply your ideas","question":"A cactus has spines instead of ordinary leaves, but its stem is green. Can it still make food?","choices":["Yes, its spines absorb sugar from soil","No, only ordinary leaves can photosynthesise","Yes, its green stem can contain chlorophyll and photosynthesise","No, all cacti must obtain food from other plants"]},{"topic":"Apply your ideas","question":"Water plants are moved into complete darkness. Will they keep adding oxygen to the water by photosynthesis?","choices":["Yes, water replaces the need for light","No, because dark water contains no mineral salts","Yes, their roots make oxygen at night","No, photosynthesis needs light"]}];
-    const endpoint = 'https://formsubmit.co/ajax/zain867@gmail.com';
-    const $ = id => document.getElementById(id);
-    const state = {index:0, selected:null, answers:Array(bank.length).fill(null), order:[]};
-    const letters = ['A','B','C','D'];
-    const shuffle = items => {
-      const copy=[...items];
-      for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]];}
-      return copy;
-    };
-    function show(which) {
-      for(const id of ['welcome','quiz','submitted']) $(id).classList.toggle('hidden',id!==which);
-      window.scrollTo({top:0,behavior:'smooth'});
-    }
-    function start() {
-      state.index=0; state.selected=null; state.answers=Array(bank.length).fill(null);
-      state.order=bank.map(q=>shuffle(q.choices));
-      show('quiz'); render();
-    }
-    function render() {
-      const i=state.index, q=bank[i];
-      state.selected=state.answers[i];
-      $('counter').textContent=`Question ${i+1} of ${bank.length}`;
-      $('topic').textContent=q.topic;
-      $('question-title').textContent=q.question;
-      $('progress-fill').style.width=`${100*i/bank.length}%`;
-      document.querySelector('.progress').setAttribute('aria-valuenow',String(i));
-      const choices=$('choices'); choices.replaceChildren();
-      state.order[i].forEach((choice,j)=>{
-        const button=document.createElement('button');
-        button.type='button'; button.className='choice';
-        const badge=document.createElement('span'); badge.className='letter'; badge.textContent=letters[j];
-        const label=document.createElement('span'); label.textContent=choice;
-        button.append(badge,label);
-        button.addEventListener('click',()=>select(choice));
-        choices.append(button);
-      });
-      updateSelection();
-      $('next').textContent=i===bank.length-1?'Submit answers →':'Next question →';
-      $('previous').disabled=i===0;
-      $('send-status').textContent='';
-    }
-    function updateSelection() {
-      document.querySelectorAll('.choice').forEach(button=>{
-        const picked=button.lastElementChild.textContent===state.selected;
-        button.classList.toggle('selected',picked);
-        button.setAttribute('aria-pressed',String(picked));
-      });
-      $('next').disabled=state.selected===null;
-    }
-    function select(choice) { state.selected=choice; state.answers[state.index]=choice; updateSelection(); }
-    function previous() { if(state.index>0){state.index--;render();} }
-    async function next() {
-      if(state.selected===null) return;
-      state.answers[state.index]=state.selected;
-      if(state.index<bank.length-1){state.index++;render();return;}
-      await submit();
-    }
-    async function submit() {
-      $('next').disabled=true; $('previous').disabled=true;
-      $('send-status').textContent='Sending answers…';
-      const report=bank.map((q,i)=>`${i+1}. ${q.question}\nAnswer: ${state.answers[i]}`).join('\n\n');
-      const payload={
-        _subject:'Grade 7 plant science quiz submission',
-        _captcha:'false',
-        _honey:'',
-        _url:window.location.href,
-        Quiz:'Grade 7 Photosynthesis and Transport in Plants',
-        Submitted:new Date().toLocaleString(),
-        Answers:report
-      };
-      try {
-        const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
-        const result=await response.json();
-        if(!response.ok || result.success===false || result.success==='false') throw Error(result.message || 'Submission was not accepted');
-        show('submitted');
-      } catch(error) {
-        $('next').disabled=false; $('previous').disabled=false;
-        $('send-status').textContent=/activat/i.test(String(error.message))
-          ? 'Your parent needs to activate email delivery first. Please ask them, then try Submit again.'
-          : 'The answers could not be sent. Check your internet connection and try Submit again.';
+    const sections = [
+      {number:1,title:'Follow the materials and energy',points:6,context:'Fill in each blank. Use each idea once: carbon dioxide, water, sunlight, chlorophyll, sugar, oxygen.',grid:true,items:[
+        {id:'q1_air',label:'From air',type:'short'},
+        {id:'q1_roots',label:'From roots',type:'short'},
+        {id:'q1_energy',label:'Energy source',type:'short'},
+        {id:'q1_pigment',label:'Pigment that captures the energy',type:'short'},
+        {id:'q1_food',label:'Food made',type:'short'},
+        {id:'q1_gas',label:'Gas released',type:'short'}
+      ]},
+      {number:2,title:'Fix the three claims',points:6,context:'Each claim is incorrect. Rewrite it so it becomes scientifically correct. (2 points each)',items:[
+        {id:'q2a',label:'a. “Plants obtain their food from the soil.” Rewrite:',type:'long'},
+        {id:'q2b',label:'b. “Oxygen is an ingredient that plants use to make sugar in photosynthesis.” Rewrite:',type:'long'},
+        {id:'q2c',label:'c. “Water travels from the roots to the leaves through phloem.” Rewrite:',type:'long'}
+      ]},
+      {number:3,title:'Read the evidence',points:5,context:'A willow grew from 2.3 kg to 76.7 kg over five years. The dry soil went from 90.7 kg to 90.6 kg.',items:[
+        {id:'q3a',label:'a. How much mass did the tree gain? Give your answer in kg. (1 point)',type:'short'},
+        {id:'q3b',label:'b. How much mass did the soil lose? Give your answer in kg. (1 point)',type:'short'},
+        {id:'q3c',label:'c. What do these numbers show about the claim that most of a tree’s new mass comes from soil? (1 point)',type:'long'},
+        {id:'q3d',label:'d. Name the two substances a plant uses to make sugar, and explain how this helps it grow. (2 points)',type:'long'}
+      ]},
+      {number:4,title:'Investigate a striped leaf',points:7,context:'A plant has a leaf with green and white stripes. It is kept in darkness until its leaves have no starch, then placed in sunlight for several hours. The leaf is tested with iodine.',items:[
+        {id:'q4a',label:'a. What does a blue-black iodine result show? (1 point)',type:'short'},
+        {id:'q4b',label:'b. Which stripes should turn blue-black? Explain why the other stripes should not. (3 points)',type:'long'},
+        {id:'q4c',label:'c. Why remove any stored starch before the test begins? (1 point)',type:'long'},
+        {id:'q4d',label:'d. Name two conditions that should be kept the same when comparing this leaf with an all-green leaf. (2 points)',type:'long'}
+      ]},
+      {number:5,title:'Trace two journeys through a plant',points:8,context:'A flowering plant has wet soil, green leaves and a growing potato tuber underground. Complete the route: soil → [1] → [2] in roots and stem → leaf → air through [3].',items:[
+        {id:'q5a1',label:'a. Route blank [1] (1 point)',type:'short'},
+        {id:'q5a2',label:'a. Route blank [2] (1 point)',type:'short'},
+        {id:'q5a3',label:'a. Route blank [3] (1 point)',type:'short'},
+        {id:'q5b',label:'b. What makes the upward movement of water in xylem possible? Explain the link to water lost from leaves. (2 points)',type:'long'},
+        {id:'q5c',label:'c. Which tissue carries food from the leaves toward the growing tuber? (1 point)',type:'short'},
+        {id:'q5d',label:'d. Why do many tiny root hairs help the plant absorb water quickly? (2 points)',type:'long'}
+      ]},
+      {number:6,title:'Apply the ideas to new situations',points:8,context:'Use the chapter ideas to explain each situation.',items:[
+        {id:'q6a',label:'a. A cactus has spines instead of ordinary leaves. Its green stem is in sunlight. Can it make food? Explain. (2 points)',type:'long'},
+        {id:'q6b',label:'b. Water plants in an aquarium are moved to a completely dark room. Will they keep adding oxygen to the water by photosynthesis? Explain. (3 points)',type:'long'},
+        {id:'q6c',label:'c. Two similar plants have the same number of leaves. One has much larger leaves. If all other conditions are the same, which is likely to lose more water by transpiration? Explain how this may affect water movement in its xylem. (3 points)',type:'long'}
+      ]}
+    ];
+    const endpoint='https://formsubmit.co/ajax/zain867@gmail.com';
+    const draftKey='grade7_plant_worksheet_draft_v1';
+    const $=id=>document.getElementById(id);
+    const allItems=sections.flatMap(section=>section.items);
+
+    function renderQuestions(){
+      const container=$('questions');
+      for(const section of sections){
+        const card=document.createElement('section'); card.className='card'; card.id=`question-${section.number}`;
+        const header=document.createElement('div'); header.className='card-header';
+        const title=document.createElement('h2'); title.textContent=`${section.number}. ${section.title}`;
+        const points=document.createElement('span'); points.className='points'; points.textContent=`${section.points} points`;
+        header.append(title,points); card.append(header);
+        const context=document.createElement('p'); context.className='context'; context.textContent=section.context; card.append(context);
+        const fieldContainer=document.createElement('div'); if(section.grid) fieldContainer.className='answer-grid';
+        for(const item of section.items){
+          const label=document.createElement('label'); label.className='field'; label.htmlFor=item.id;
+          const caption=document.createElement('span'); caption.className='field-label'; caption.textContent=item.label;
+          const field=document.createElement(item.type==='long'?'textarea':'input');
+          if(item.type!=='long') field.type='text';
+          field.id=item.id; field.name=item.id; field.required=true; field.dataset.answer='true'; field.autocomplete='off';
+          if(item.type==='long') field.rows=3;
+          label.append(caption,field); fieldContainer.append(label);
+        }
+        card.append(fieldContainer); container.append(card);
       }
     }
-    $('start').addEventListener('click',start);
-    $('previous').addEventListener('click',previous);
-    $('next').addEventListener('click',next);
-    document.addEventListener('keydown',event=>{
-      if($('quiz').classList.contains('hidden') || !/^[1-4]$/.test(event.key)) return;
-      const choice=$('choices').children[Number(event.key)-1];
-      if(choice){event.preventDefault();choice.click();}
-    });
-  
+    function allFields(){return allItems.map(item=>$(item.id));}
+    function saveDraft(){
+      const draft={name:$('student-name').value,answers:Object.fromEntries(allItems.map(item=>[item.id,$(item.id).value]))};
+      try{localStorage.setItem(draftKey,JSON.stringify(draft));}catch{}
+      updateProgress();
+    }
+    function restoreDraft(){
+      try{
+        const draft=JSON.parse(localStorage.getItem(draftKey)||'null');
+        if(draft){$('student-name').value=draft.name||'';for(const item of allItems) $(item.id).value=draft.answers?.[item.id]||'';}
+      }catch{}
+      updateProgress();
+    }
+    function updateProgress(){
+      const complete=allFields().filter(field=>field.value.trim()).length;
+      $('progress-text').textContent=`${complete} of ${allItems.length} answers complete`;
+      $('progress-fill').style.width=`${100*complete/allItems.length}%`;
+    }
+    async function submit(event){
+      event.preventDefault();
+      const name=$('student-name').value.trim();
+      if(!name){$('student-name').focus();$('submit-status').textContent='Please enter your first name.';return;}
+      const missing=allFields().find(field=>!field.value.trim());
+      if(missing){missing.focus();$('submit-status').textContent='Please complete each answer before submitting.';return;}
+      const button=$('submit-button');button.disabled=true;$('submit-status').textContent='Sending your answers…';
+      const report=sections.map(section=>[
+        `${section.number}. ${section.title} (${section.points} points)`,
+        section.context,
+        ...section.items.map(item=>`${item.label}\n${$(item.id).value.trim()}`)
+      ].join('\n')).join('\n\n');
+      const payload={
+        _subject:`Grade 7 plant science worksheet: ${name}`,
+        _captcha:'false',_honey:'',_url:window.location.href,
+        Student:name,Submitted:new Date().toLocaleString(),
+        Quiz:'Interactive version of the 40-point Grade 7 concept-check worksheet',
+        Answers:report
+      };
+      try{
+        const response=await fetch(endpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+        const result=await response.json();
+        if(!response.ok||result.success===false||result.success==='false')throw Error(result.message||'Submission was not accepted');
+        try{localStorage.removeItem(draftKey);}catch{}
+        $('quiz-form').hidden=true;$('done').hidden=false;window.scrollTo({top:0,behavior:'smooth'});
+      }catch(error){
+        button.disabled=false;
+        $('submit-status').textContent=/activat/i.test(String(error.message))
+          ? 'Your parent needs to activate email delivery first. Please ask them, then try again.'
+          : 'The answers could not be sent. Check your internet connection and try again.';
+      }
+    }
+    renderQuestions();restoreDraft();
+    $('quiz-form').addEventListener('input',saveDraft);
+    $('quiz-form').addEventListener('submit',submit);
   </script>
 </body>
 </html>
